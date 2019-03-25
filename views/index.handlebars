@@ -1,0 +1,60 @@
+<div class="container">
+
+	<div class="row">
+		    <div class="center col-lg-12">
+			<h1>Eat-Da-Burger App</h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col avails">
+			<br>
+			<h2>Burgers Available</h2>
+			<ol>
+				{{#each burgers}}
+				{{#unless this.devoured}}
+				<li>
+
+					<form method="POST" action="/burgers/{{this.id}}?_method=put">
+						<input type="hidden" name="devoured" value="true">
+						<button class="btn btn-success eat" type="submit">Eat {{this.burger_name}}</button>
+					</form>
+				</li>
+				<hr>
+				{{/unless}}
+				{{/each}}
+			</ol> 
+		</div>
+
+		    <div class="col eaten">
+			<br>
+			<h2>Burgers Eaten!</h2>
+			<ol>
+				{{#each burgers}}
+				{{#if this.devoured}}
+				<li>
+					{{this.burger_name}}
+				</li>
+				<hr>
+				{{/if}}
+				{{/each}}
+			</ol>
+		</div> 
+	</div>
+
+	<div class="row add">
+		    <div class="center col-lg-5 mx-auto">
+			<h2>Add A Burger!</h2>
+
+			<form class="" action="/burgers" method="POST">
+				<div class="form-group">
+					<input type="text" name="burger_name">
+				</div>
+				<button class="btn btn-primary" type="submit">Submit Order</button>
+			</form>
+		</div>
+
+	</div>
+	<!-- end .row -->
+
+</div>
