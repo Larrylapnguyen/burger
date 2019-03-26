@@ -14,7 +14,6 @@ router.get("/", function (req, res) {
 });
 
 router.post("/burgers", function (req, res) {
-	console.log("TEST POST");
 	burger.create([
 			'burger_name'
 		],
@@ -26,7 +25,6 @@ router.post("/burgers", function (req, res) {
 		});
 });
 router.put("/burgers/:id", function (req, res) {
-	console.log("TEST****************************************************************************************");
 	var con = 'id = ' + req.params.id;
 	burger.updateOne({
 		devoured: true

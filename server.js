@@ -4,11 +4,13 @@ var exhb = require("express-handlebars");
 var PORT = process.env.PORT || 8080;
 var app = express();
 
+var methodOverride = require("method-override");
 app.use(express.static("public"));
 
 app.use(express.urlencoded({
 	extended: false
 }));
+app.use(methodOverride("_method"));
 app.use(express.json());
 
 

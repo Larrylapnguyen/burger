@@ -41,7 +41,7 @@ var orm = {
 		});
 	},
 	updateOne: function (table, obj, con, cb) {
-		var query = "UPDATE " + table + " SET " + objToSql(obj) + " WHERE " + con;
+		var query = "UPDATE " + table + " SET devoured = true WHERE " + con;
 		console.log(query);
 		connection.query(query, function (err, results) {
 			if (err) throw err;
